@@ -6,15 +6,30 @@ include "controller.php";
 
 if($_GET['menu'] == ''){
      $data['title'] = "Home Title"; 
-     return Controller::views('home', $data);
+     $rows['list'] = Controller::model('user')->getallemployee();
+     $data['headers'] = Controller::views('layout/headers');
+     $data['body'] = Controller::views('profiles/profile', $rows);
+     $data['footers'] = Controller::views('layout/footers');
+     return Controller::views('master', $data);
+
 } if($_GET['menu'] == 'profile'){
      $data['title'] = "Profile Title"; 
-     $data['list'] = Controller::model('user')->getallemployee();
+     $rows['list'] = Controller::model('user')->getallemployee();
+     $data['headers'] = Controller::views('layout/headers');
+     $data['body'] = Controller::views('profiles/profile', $rows);
+     $data['footers'] = Controller::views('layout/footers');
      return Controller::views('profile', $data);
+
 } if($_GET['menu'] == 'detail_profile'){
      $data['id'] = $_GET['id'];
      $data['title'] = "Profile Detail Title"; 
      $data['list'] = Controller::model('user')->getdetailemployee($data['id']);
-     return Controller::views('profile', $data);
+     $data['headers'] = Controller::views('layout/headers');
+     $data['body'] = Controller::views('profiles/profile', $rows);
+     $data['footers'] = Controller::views('layout/footers');
+     return Controller::views('detail_profile', $data);
+     
+} if($_GET['menu'] == 'test'){
+     return redirect('/index.php');
 }
 
