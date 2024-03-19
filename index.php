@@ -18,17 +18,17 @@ if($_GET['menu'] == ''){
      $data['headers'] = Controller::views('layout/headers');
      $data['body'] = Controller::views('profiles/profile', $rows);
      $data['footers'] = Controller::views('layout/footers');
-     return Controller::views('profile', $data);
+     return Controller::views('master', $data);
 
 } if($_GET['menu'] == 'detail_profile'){
      $data['id'] = $_GET['id'];
      $data['title'] = "Profile Detail Title"; 
-     $data['list'] = Controller::model('user')->getdetailemployee($data['id']);
+     $rows['list'] = Controller::model('user')->getdetailemployee($data['id']);
      $data['headers'] = Controller::views('layout/headers');
-     $data['body'] = Controller::views('profiles/profile', $rows);
+     $data['body'] = Controller::views('profiles/detail_profile', $rows);
      $data['footers'] = Controller::views('layout/footers');
-     return Controller::views('detail_profile', $data);
-     
+     return Controller::views('master', $data);
+
 } if($_GET['menu'] == 'test'){
      return redirect('/index.php');
 }

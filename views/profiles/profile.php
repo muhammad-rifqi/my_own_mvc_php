@@ -1,4 +1,3 @@
-
 <h1>PROFILE</h1>
 <?php 
     echo "<pre>";
