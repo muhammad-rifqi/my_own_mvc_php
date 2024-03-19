@@ -6,11 +6,6 @@
     <title><?= $title; ?></title>
 </head>
 <body>
-<h1>PROFILE</h1>
-<?php 
-    echo "<pre>";
-        print_r($list);
-    echo "</pre>";
-?>    
+<h1>HOME</h1>    
 </body>
 </html>
