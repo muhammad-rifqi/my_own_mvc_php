@@ -5,6 +5,7 @@ include "database.php";
 include "controller.php";
 
 if($_GET['menu'] == ''){
+
      $data['title'] = "Home Title"; 
      $rows['list'] = Controller::model('user')->getallemployee();
      $data['headers'] = Controller::views('layout/headers');
@@ -13,6 +14,7 @@ if($_GET['menu'] == ''){
      return Controller::views('master', $data);
 
 } if($_GET['menu'] == 'profile'){
+
      $data['title'] = "Profile Title"; 
      $rows['list'] = Controller::model('user')->getallemployee();
      $data['headers'] = Controller::views('layout/headers');
@@ -21,6 +23,7 @@ if($_GET['menu'] == ''){
      return Controller::views('master', $data);
 
 } if($_GET['menu'] == 'detail_profile'){
+     
      $data['id'] = $_GET['id'];
      $data['title'] = "Profile Detail Title"; 
      $rows['list'] = Controller::model('user')->getdetailemployee($data['id']);
